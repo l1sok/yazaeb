@@ -1,25 +1,27 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <math.h> 
-#define MAXLINE 1000
  
-void getcoef   (char s []) {
-    int ch;
+void getcoef   (char s []) 
+{
+    int ch = -1;
     for (int i = 0; (ch = getchar()) != '\n'; i++) {
         s[i] = ch;
     }
 }
 
-int main() { 
-    char coef1 [MAXLINE] = ""; getcoef(coef1);
-    char coef2[MAXLINE] = ""; getcoef(coef2);
-    char coef3[MAXLINE] = ""; getcoef(coef3);
-    double coef_a = atof(coef1);
-    double coef_b = atof(coef2);
-    double coef_c = atof(coef3); 
+int main() 
+{ 
+    const int MAXLINE = 1000;
+    char coefa [MAXLINE] = ""; getcoef(coefa);
+    char coefb [MAXLINE] = ""; getcoef(coefb);
+    char coefc [MAXLINE] = ""; getcoef(coefc);
+    double coef_a = atof(coefa);
+    double coef_b = atof(coefb);
+    double coef_c = atof(coefc); 
     double d = pow(coef_b, 2)-4*coef_a*coef_c;
     if (coef_a) { 
-            if (d>0) 
+            if (d > 0) 
                 printf("2 razlichnyh kornya: %.8g %.8g\n", (-coef_b-sqrt(d))/(2*coef_a), (-coef_b+sqrt(d))/(2*coef_a)); 
             else if (d==0) 
                 printf("1 koren': %.8g\n",-coef_b/(2*coef_a)); 
@@ -36,5 +38,6 @@ int main() {
             else
                 printf("dohera korney\n");
     }
+
     return 0; 
 }
